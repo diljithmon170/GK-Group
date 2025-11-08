@@ -15,10 +15,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from gk_group_app import views
 
+# Custom error handlers
+handler404 = 'gk_group_app.views.custom_404'
+handler500 = 'gk_group_app.views.custom_500'
+
 urlpatterns = [
+    # Admin
     path('admin/', admin.site.urls),
-    path('', views.index, name='home'),
+
+    # App URLs
+    path('', include('gk_group_app.urls')),
+
+    # Direct URLs for special pages
+    path('robots.txt', views.robots_txt),
+    path('sitemap.xml', views.sitemap_xml),
+
+    # API endpoints
+    path('api/contact-ajax/', views.contact_form_ajax, name='contact_form_ajax'),
+    path('api/newsletter/', views.newsletter_subscribe, name='newsletter_subscribe'),
 ]
+
+# Serve static files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += staticfiles_urlpatterns()
