@@ -38,10 +38,10 @@
                         Discover our legacy of excellence in Palakkad and beyond.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="{% url 'gk_textiles' %}" class="gk-hero-btn">
+                        <a href="{% url 'gk_group_app:gk_textiles' %}" class="gk-hero-btn">
                             <i class="fas fa-tshirt me-2"></i>Explore Textiles
                         </a>
-                        <a href="{% url 'gk_steels' %}" class="gk-hero-btn" style="background: var(--primary-color);">
+                        <a href="{% url 'gk_group_app:gk_steels' %}" class="gk-hero-btn" style="background: var(--primary-color);">
                             <i class="fas fa-industry me-2"></i>Explore Steels
                         </a>
                     </div>
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="{% url 'about' %}" class="gk-business-btn">
+                    <a href="{% url 'gk_group_app:about' %}" class="gk-business-btn">
                         Learn More About Us <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
@@ -154,7 +154,7 @@
                     <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom Tailoring Available</li>
                     <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Family Collections</li>
                 </ul>
-                <a href="{% url 'gk_textiles' %}" class="gk-business-btn">
+                <a href="{% url 'gk_group_app:gk_textiles' %}" class="gk-business-btn">
                     Explore Textiles <i class="fas fa-arrow-right ms-1"></i>
                 </a>
             </div>
@@ -175,7 +175,7 @@
                     <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Hardware Products</li>
                     <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Building Materials</li>
                 </ul>
-                <a href="{% url 'gk_steels' %}" class="gk-business-btn">
+                <a href="{% url 'gk_group_app:gk_steels' %}" class="gk-business-btn">
                     Explore Steels <i class="fas fa-arrow-right ms-1"></i>
                 </a>
             </div>
@@ -246,7 +246,7 @@
                     We're here to serve you with the best quality and exceptional service.
                 </p>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="{% url 'contact' %}" class="gk-hero-btn">
+                    <a href="{% url 'gk_group_app:contact' %}" class="gk-hero-btn">
                         <i class="fas fa-envelope me-2"></i>Get in Touch
                     </a>
                     <a href="tel:{{ contact_phone|default:'+9100234553759' }}" class="gk-hero-btn" style="background: #28a745;">
@@ -308,7 +308,7 @@
             <div class="col-lg-8">
                 <div class="gk-contact-form">
                     <h4 class="mb-4">Send us a Message</h4>
-                    <form action="{% url 'contact' %}" method="POST" id="homeContactForm">
+                    <form action="{% url 'gk_group_app:contact' %}" method="POST" id="homeContactForm">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-3">

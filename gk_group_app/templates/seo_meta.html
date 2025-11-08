@@ -1,0 +1,32 @@
+{% load static %}
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<meta name="author" content="GK Group">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:title" content="{% block og_title %}{{ page_title }}{% endblock %}">
+<meta property="og:description" content="{% block og_description %}{% endblock %}">
+<meta property="og:image" content="{% static 'img/og-image.jpg' %}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta property="twitter:title" content="{% block twitter_title %}{{ page_title }}{% endblock %}">
+<meta property="twitter:description" content="{% block twitter_description %}{% endblock %}">
+<meta property="twitter:image" content="{% static 'img/og-image.jpg' %}">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GK Group",
+    "url": "{{ request.build_absolute_uri }}",
+    "logo": "{{ request.build_absolute_uri }}{% static 'img/gk_logo.svg' %}",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ contact_phone }}",
+        "contactType": "customer service"
+    }
+}
+</script>

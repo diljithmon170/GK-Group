@@ -2,427 +2,63 @@
 {% load static %}
 
 {% block title %}{{ page_title }}{% endblock %}
-
 {% block meta_description %}{{ meta_description }}{% endblock %}
 
-{% block structured_data %}
-{{ block.super }}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About {{ company_name|default:'GK Group' }}",
-    "description": "{{ meta_description|default:'Learn about GK Group\'s journey and mission under founder Mr. Gireesh Kumar' }}",
-    "url": "{{ request.build_absolute_uri }}",
-    "mainEntity": {
-        "@type": "Organization",
-        "name": "{{ company_name|default:'GK Group' }}",
-        "founder": "{{ founder_name|default:'Mr. Gireesh Kumar' }}",
-        "description": "{{ about_text|default:'Leading provider of textiles and steel products in Palakkad, Kerala' }}"
-    }
-}
-</script>
-{% endblock %}
-
 {% block content %}
-<!-- Hero Section -->
-<section class="gk-hero">
-    <div class="container gk-hero-content">
+<!-- About Us Section -->
+<section class="gk-about-page">
+    <div class="container">
+        <div class="gk-section-title text-center">About GK Group</div>
         <div class="row align-items-center">
-            <div class="col-lg-8">
-                <div class="gk-hero-text">
-                    <h1 class="display-4 fw-bold mb-4">About {{ company_name|default:"GK Group" }}</h1>
-                    <p class="lead mb-4">Building Trust, Delivering Excellence Since Day One</p>
-                    <p class="mb-4">
-                        Discover our journey of providing premium quality textiles and steel products to the people of Palakkad and beyond.
-                        Founded on principles of trust, quality, and exceptional customer service.
-                    </p>
+            <div class="col-lg-6 text-center">
+                <img src="{% static 'img/founder.jpg' %}" alt="Founder - {{ founder_name }}" class="img-fluid rounded-circle shadow-lg" style="max-width: 300px;">
+                <h4 class="mt-3">{{ founder_name }}</h4>
+                <p class="text-muted">Founder & Owner, GK Group</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="gk-about-text">
+                    <h3>Our Story</h3>
+                    <p>{{ about_text }}</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle text-success"></i> Founded by <b>{{ founder_name }}</b></li>
+                        <li><i class="fas fa-check-circle text-success"></i> Trusted by hundreds of clients in {{ location }}</li>
+                        <li><i class="fas fa-check-circle text-success"></i> Driven by innovation and integrity</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="gk-hero-img"></div>
-</section>
 
-<!-- Founder Story Section -->
-<section class="gk-about">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="gk-section-title">Our Founder's Vision</h2>
-            <p class="lead text-muted">Leadership Built on Trust and Excellence</p>
-        </div>
-
-        <div class="gk-about-content">
-            <div class="gk-about-img">
-                <img src="{% static 'img/founder.jpg' %}"
-                     alt="{{ founder_name|default:'Gireesh Kumar' }} - Founder of {{ company_name|default:'GK Group' }}"
-                     class="img-fluid rounded-3 shadow-lg">
-                <div class="text-center mt-3">
-                    <h5 class="fw-bold mb-1">{{ founder_name|default:"Gireesh Kumar" }}</h5>
-                    <p class="text-muted mb-0">Founder & Managing Director</p>
-                    <small class="text-muted">{{ company_name|default:"GK Group" }}</small>
-                </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h4>Our Mission</h4>
+                <p>To provide our customers with the highest quality products and services, ensuring their satisfaction and building long-lasting relationships based on trust and reliability.</p>
             </div>
-
-            <div class="gk-about-text">
-                <h3 class="mb-4" style="color: var(--secondary-color);">Our Story</h3>
-                <p class="mb-4">
-                    {{ about_text|default:"Founded with a vision to provide quality products and exceptional service, GK Group has grown from humble beginnings to become a trusted name in Palakkad's business community. Under the leadership of Mr. Gireesh Kumar, we continue to uphold our values of trust, quality, and customer satisfaction." }}
-                </p>
-
-                <h4 class="mb-3" style="color: var(--primary-color);">Our Journey</h4>
-                <p class="mb-4">
-                    What started as a small establishment has grown into a diversified business group serving hundreds of satisfied customers.
-                    Our commitment to quality and customer satisfaction has been the cornerstone of our success.
-                </p>
-
-                <blockquote class="blockquote border-start border-4 border-warning ps-3 py-2 mb-4">
-                    <p class="mb-0 fs-5">"Quality is not an act, it is a habit. We believe in delivering excellence in every product and service we offer."</p>
-                    <footer class="blockquote-footer mt-2">
-                        <strong>{{ founder_name|default:"Gireesh Kumar" }}</strong>, Founder
-                    </footer>
-                </blockquote>
+            <div class="col-md-6">
+                <h4>Our Vision</h4>
+                <p>To be the leading provider of textiles and steel in the region, known for our commitment to quality, innovation, and customer-centric approach.</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Mission, Vision, Values Section -->
-<section class="gk-business">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="gk-section-title">Our Core Values</h2>
-            <p class="lead text-muted">Principles That Guide Our Business</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="gk-business-card h-100">
-                    <div class="mb-4">
-                        <i class="fas fa-bullseye fa-3x" style="color: var(--secondary-color);"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>
-                        To provide premium quality textiles and steel products with exceptional customer service,
-                        building lasting relationships based on trust and reliability.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gk-business-card h-100">
-                    <div class="mb-4">
-                        <i class="fas fa-eye fa-3x" style="color: var(--secondary-color);"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>
-                        To be the most trusted name in textiles and steel products across Kerala,
-                        known for quality, innovation, and customer-centric approach.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gk-business-card h-100">
-                    <div class="mb-4">
-                        <i class="fas fa-heart fa-3x" style="color: var(--secondary-color);"></i>
-                    </div>
-                    <h3>Our Values</h3>
-                    <p>
-                        Integrity, Quality, Customer Satisfaction, Innovation, and Community Trust.
-                        These values drive everything we do at GK Group.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Company Milestones Section -->
-<section class="gk-about">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="gk-section-title">Our Journey of Excellence</h2>
-            <p class="lead text-muted">Key Milestones in Our Growth Story</p>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-warning"></div>
-                        <div class="timeline-content">
-                            <h5>Humble Beginnings</h5>
-                            <p class="text-muted">Started with a small textile shop focused on quality fabrics and exceptional customer service.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-warning"></div>
-                        <div class="timeline-content">
-                            <h5>Expansion into Steel</h5>
-                            <p class="text-muted">Diversified into construction steel and hardware materials, responding to customer needs.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-warning"></div>
-                        <div class="timeline-content">
-                            <h5>Growth and Recognition</h5>
-                            <p class="text-muted">Became a trusted name in Palakkad, serving hundreds of satisfied customers.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-warning"></div>
-                        <div class="timeline-content">
-                            <h5>Present Day</h5>
-                            <p class="text-muted">Leading provider of premium textiles and steel products with a reputation for quality and reliability.</p>
+        {% if team_members %}
+        <div class="gk-team mt-5">
+            <div class="gk-section-title text-center">Our Team</div>
+            <div class="row">
+                {% for member in team_members %}
+                <div class="col-md-4 text-center mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if member.image %}
+                            <img src="{{ member.image.url }}" alt="{{ member.name }}" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                            {% endif %}
+                            <h5 class="card-title">{{ member.name }}</h5>
+                            <p class="card-text">{{ member.position }}</p>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
+        {% endif %}
     </div>
 </section>
-
-<!-- Team Section -->
-{% if team_members %}
-<section class="gk-business">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="gk-section-title">Our Team</h2>
-            <p class="lead text-muted">Dedicated Professionals Serving You</p>
-        </div>
-
-        <div class="row g-4">
-            {% for member in team_members %}
-            <div class="col-lg-4 col-md-6">
-                <div class="text-center">
-                    {% if member.image %}
-                    <img src="{{ member.image.url }}" alt="{{ member.name }}" class="img-fluid rounded-circle mb-3" style="max-width: 200px;">
-                    {% else %}
-                    <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 200px; height: 200px; font-size: 3rem;">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    {% endif %}
-                    <h5>{{ member.name }}</h5>
-                    <p class="text-muted">{{ member.position }}</p>
-                    {% if member.bio %}
-                    <p class="small">{{ member.bio }}</p>
-                    {% endif %}
-                    {% if member.email %}
-                    <p class="small mb-0">
-                        <i class="fas fa-envelope me-1"></i>
-                        <a href="mailto:{{ member.email }}">{{ member.email }}</a>
-                    </p>
-                    {% endif %}
-                    {% if member.phone %}
-                    <p class="small">
-                        <i class="fas fa-phone me-1"></i>
-                        <a href="tel:{{ member.phone }}">{{ member.phone }}</a>
-                    </p>
-                    {% endif %}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-{% endif %}
-
-<!-- Why Choose Us Section -->
-<section class="gk-contact">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="gk-section-title">Why Choose {{ company_name|default:"GK Group" }}?</h2>
-            <p class="lead text-muted">The Difference We Make</p>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-award text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Quality Assurance</h5>
-                        <p class="text-muted">Every product undergoes strict quality checks to ensure you receive only the best.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-handshake text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Trusted Relationships</h5>
-                        <p class="text-muted">Building long-term relationships with customers based on trust and reliability.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-users text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Customer First</h5>
-                        <p class="text-muted">Your satisfaction is our priority. We go the extra mile to meet your needs.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-truck text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Timely Delivery</h5>
-                        <p class="text-muted">We understand the importance of timely delivery and ensure prompt service.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-dollar-sign text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Competitive Pricing</h5>
-                        <p class="text-muted">Premium quality products at competitive and fair prices.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="d-flex align-items-start">
-                    <i class="fas fa-shield-alt text-warning me-3 mt-1" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <h5 class="fw-bold">Reliability</h5>
-                        <p class="text-muted">Decades of experience and a proven track record of customer satisfaction.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action Section -->
-<section class="py-5" style="background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color)); color: white;">
-    <div class="container text-center">
-        <div class="row align-items-center">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-4">Experience the {{ company_name|default:"GK Group" }} Difference</h2>
-                <p class="lead mb-4">
-                    Visit our stores or contact us to experience our premium quality products and exceptional customer service.
-                    We're here to serve you with dedication and excellence.
-                </p>
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <a href="{% url 'gk_textiles' %}" class="gk-hero-btn">
-                        <i class="fas fa-tshirt me-2"></i>Explore Textiles
-                    </a>
-                    <a href="{% url 'gk_steels' %}" class="gk-hero-btn" style="background: var(--secondary-color);">
-                        <i class="fas fa-industry me-2"></i>Explore Steels
-                    </a>
-                    <a href="{% url 'contact' %}" class="gk-hero-btn" style="background: #28a745;">
-                        <i class="fas fa-envelope me-2"></i>Contact Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock %}
-
-{% block extra_js %}
-<style>
-.timeline {
-    position: relative;
-    padding: 20px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--secondary-color);
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 50px;
-}
-
-.timeline-marker {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    border: 3px solid white;
-    box-shadow: 0 0 0 3px var(--secondary-color);
-}
-
-.timeline-content {
-    width: 45%;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: var(--shadow-sm);
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-left: auto;
-}
-
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 30px;
-    }
-
-    .timeline-marker {
-        left: 30px;
-    }
-
-    .timeline-content {
-        width: calc(100% - 60px);
-        margin-left: 60px !important;
-    }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Animate timeline items on scroll
-    const timelineItems = document.querySelectorAll('.timeline-item');
-
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '0';
-                entry.target.style.transform = 'translateY(30px)';
-                entry.target.style.transition = 'all 0.6s ease';
-
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, 200);
-
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    timelineItems.forEach(item => {
-        observer.observe(item);
-    });
-});
-</script>
 {% endblock %}
