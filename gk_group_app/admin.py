@@ -13,7 +13,7 @@ class ContactMessageAdmin(admin.ModelAdmin):
     """
     list_display = [
         'name', 'email', 'phone', 'interest_area_display', 'subject_preview',
-        'is_read', 'is_recent', 'created_at', 'mark_as_read_action'
+        'is_read', 'is_archived', 'is_recent', 'created_at', 'mark_as_read_action'
     ]
     list_filter = [
         'is_read', 'is_archived', 'interest_area', 'created_at'
