@@ -13,7 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,30 +56,32 @@
     <footer class="gk-footer">
         <div class="container">
             <div class="gk-footer-top">
-                <div class="gk-footer-col">
-                    <div class="gk-footer-title">Contact Us</div>
-                    <div>
-                        <i class="fa-solid fa-envelope"></i> {{ contact_email }}<br>
-                        <i class="fa-solid fa-phone"></i> {{ contact_phone }}<br>
-                        <i class="fa-solid fa-map-marker-alt"></i> {{ location }}
+                <div class="row">
+                    <div class="col-md-4 gk-footer-col">
+                        <div class="gk-footer-title">Contact Us</div>
+                        <div>
+                            <i class="fa-solid fa-envelope"></i> {{ contact_email }}<br>
+                            <i class="fa-solid fa-phone"></i> {{ contact_phone }}<br>
+                            <i class="fa-solid fa-map-marker-alt"></i> {{ location }}
+                        </div>
                     </div>
-                </div>
-                <div class="gk-footer-col">
-                    <div class="gk-footer-title">Quick Links</div>
-                    <ul class="gk-footer-links">
-                        <li><a href="{% url 'gk_group_app:home' %}">Home</a></li>
-                        <li><a href="{% url 'gk_group_app:about' %}">About</a></li>
-                        <li><a href="{% url 'gk_group_app:gk_textiles' %}">GK Textiles</a></li>
-                        <li><a href="{% url 'gk_group_app:gk_steels' %}">GK Steels</a></li>
-                        <li><a href="{% url 'gk_group_app:contact' %}">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="gk-footer-col">
-                    <div class="gk-footer-title">Follow Us</div>
-                    <div class="gk-footer-social">
-                        <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://wa.me/{{ whatsapp_number }}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <div class="col-md-4 gk-footer-col">
+                        <div class="gk-footer-title">Quick Links</div>
+                        <ul class="gk-footer-links">
+                            <li><a href="{% url 'gk_group_app:home' %}">Home</a></li>
+                            <li><a href="{% url 'gk_group_app:about' %}">About</a></li>
+                            <li><a href="{% url 'gk_group_app:gk_textiles' %}">GK Textiles</a></li>
+                            <li><a href="{% url 'gk_group_app:gk_steels' %}">GK Steels</a></li>
+                            <li><a href="{% url 'gk_group_app:contact' %}">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 gk-footer-col">
+                        <div class="gk-footer-title">Follow Us</div>
+                        <div class="gk-footer-social">
+                            <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/{{ whatsapp_number }}" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

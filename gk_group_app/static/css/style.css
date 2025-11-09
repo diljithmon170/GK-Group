@@ -4,14 +4,14 @@ Custom CSS for GK Group
 
 /* CSS Variables */
 :root {
-    --primary-color: #232837;
-    --secondary-color: #e6a23c;
-    --tertiary-color: #3a4256;
+    --primary-color: #1a1a1a;
+    --secondary-color: #007bff;
+    --tertiary-color: #f8f9fa;
     --text-light: #ffffff;
-    --text-dark: #232837;
-    --body-bg: #f8f9fa;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --text-dark: #212529;
+    --body-bg: #ffffff;
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
     --font-nav: 'Montserrat', sans-serif;
 }
 
@@ -36,15 +36,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navbar */
 .gk-navbar {
-    background-color: var(--primary-color);
+    background-color: var(--body-bg);
     padding: 1rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .gk-navbar .navbar-brand {
     font-family: var(--font-nav);
     font-weight: 700;
     font-size: 1.5rem;
-    color: var(--text-light);
+    color: var(--primary-color);
     display: flex;
     align-items: center;
 }
@@ -52,8 +54,8 @@ h1, h2, h3, h4, h5, h6 {
 .gk-navbar .gk-logo {
     width: 40px;
     height: 40px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--text-light);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,9 +66,26 @@ h1, h2, h3, h4, h5, h6 {
 
 .gk-navbar .nav-link {
     font-family: var(--font-nav);
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-left: 1rem;
-    transition: color 0.3s;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.gk-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.gk-navbar .nav-link:hover::after,
+.gk-navbar .nav-link.active::after {
+    width: 100%;
 }
 
 .gk-navbar .nav-link:hover,
@@ -77,20 +96,32 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .gk-hero {
     position: relative;
-    height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero-bg.jpg') no-repeat center center/cover;
-    color: var(--text-light);
-    display: flex;
-    align-items: center;
+    background-size: cover; /* Make image cover the entire section */
+    background-position: center;
+    padding: 150px 0;
+    color: white;
 }
 
-.gk-hero-content {
-    max-width: 800px;
+.gk-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45); /* transparent black overlay */
+    z-index: 1; /* Ensure overlay is below content but above background */
+}
+
+.gk-hero .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above overlay */
+}
+
+.gk-hero h1, .gk-hero p {
+    color: var(--text-light); /* Change text color to light for better visibility */
 }
 
 .gk-hero-btn {
     background-color: var(--secondary-color);
-    color: var(--primary-color);
+    color: var(--text-light);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
@@ -99,37 +130,64 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gk-hero-btn:hover {
-    background-color: #d48f2a;
+    background-color: #0056b3;
 }
 
-/* About Section */
-.gk-about-page, .gk-division-page, .gk-contact-page {
-    padding: 4rem 0;
+/* Card Styles */
+.card {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
 
 /* Footer */
 .gk-footer {
     background-color: var(--primary-color);
     color: var(--text-light);
-    padding: 3rem 0 1rem;
+    padding: 1.5rem 0 0.75rem;
+}
+
+.gk-footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.gk-footer-col {
+    flex: 1;
+    min-width: 200px; /* Ensure columns don't get too small */
+    margin-bottom: 0.75rem;
+    padding: 0 1rem;
 }
 
 .gk-footer-title {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--secondary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .gk-footer-links li {
     list-style: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .gk-footer-links a {
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 0.9rem;
 }
 
 .gk-footer-links a:hover {
@@ -138,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .gk-footer-social a {
     color: var(--text-light);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-right: 1rem;
     transition: color 0.3s;
 }
@@ -148,8 +206,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gk-footer-bottom {
-    border-top: 1px solid var(--tertiary-color);
-    padding-top: 1rem;
+    border-top: 1px solid #495057;
+    padding-top: 0.75rem;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .gk-footer-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gk-footer-col {
+        text-align: center;
+        padding: 0;
+    }
+    .gk-footer-social {
+        justify-content: center;
+    }
 }
