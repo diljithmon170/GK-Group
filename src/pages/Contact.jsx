@@ -132,7 +132,16 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--white)' }}>Call Us</h3>
-                                        <p style={{ color: '#cbd5e1' }}>+91 0023 4553 759</p>
+                                        <a
+                                            href="https://wa.me/919447532898"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{ color: '#cbd5e1', textDecoration: 'none', display: 'block', marginBottom: '0.5rem', transition: 'color 0.2s' }}
+                                            onMouseOver={(e) => e.target.style.color = 'var(--accent)'}
+                                            onMouseOut={(e) => e.target.style.color = '#cbd5e1'}
+                                        >
+                                            +91 9447 532 898
+                                        </a>
                                         <p style={{ color: '#cbd5e1' }}>+91 9876 543 210</p>
                                     </div>
                                 </div>
@@ -154,8 +163,22 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--white)' }}>Email Us</h3>
-                                        <p style={{ color: '#cbd5e1' }}>gkgroup@mail.com</p>
-                                        <p style={{ color: '#cbd5e1' }}>info@gkgroup.com</p>
+                                        <a
+                                            href="mailto:gkgroup@mail.com"
+                                            style={{ color: '#cbd5e1', textDecoration: 'none', display: 'block', marginBottom: '0.5rem', transition: 'color 0.2s' }}
+                                            onMouseOver={(e) => e.target.style.color = 'var(--accent)'}
+                                            onMouseOut={(e) => e.target.style.color = '#cbd5e1'}
+                                        >
+                                            gkgroup@mail.com
+                                        </a>
+                                        <a
+                                            href="mailto:info@gkgroup.com"
+                                            style={{ color: '#cbd5e1', textDecoration: 'none', display: 'block', transition: 'color 0.2s' }}
+                                            onMouseOver={(e) => e.target.style.color = 'var(--accent)'}
+                                            onMouseOut={(e) => e.target.style.color = '#cbd5e1'}
+                                        >
+                                            info@gkgroup.com
+                                        </a>
                                     </div>
                                 </div>
                             </div>
